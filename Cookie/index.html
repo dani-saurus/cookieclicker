@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>  
+
+
+<span id="aantal_cookies"></span>
+<button onclick="klik()">Cookie</button>
+<button onclick="meer_kliks()">Upgrade</button>
+<!-- Upgrade verdubbeld de kliks -->
+
+
+ <Script>
+let aantal_cookies = 0;
+let meer_kliks = 1;
+
+
+function upgrade(){
+meer_kliks++;
+
+}
+
+//cookie amount
+function klik(){
+    aantal_cookies = aantal_cookies + meer_kliks;
+    document.getElementById("aantal_cookies").innerHTML = aantal_cookies;
+}
+
+</Script>
+</body>
+</html>
