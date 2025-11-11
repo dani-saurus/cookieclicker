@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
+
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #6c757d;
+    --background-color: #f8f9fa;
+    --text-color: #212529;
+    --card-bg: #ffffff;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --hover-color: #e9ecef;
+}
+
+[data-theme="dark"] {
+    --primary-color: #85c5ff;
+    --secondary-color: #a3a3a3;
+    --background-color: #1a1a1a;
+    --text-color: #f0f0f0;
+    --card-bg: #2d2d2d;
+    --shadow-color: rgba(0, 0, 0, 0.5);
+    --hover-color: #3d3d3d;
+}
+
+[data-theme="dark"] .shop-item {
+    color: #ffffff;
+}
+
+[data-theme="dark"] .text-muted {
+    color: #c0c0c0 !important;
+}
+
+[data-theme="dark"] #cookies-per-second {
+    color: var(--primary-color);
+    text-shadow: 0 0 5px rgba(133, 197, 255, 0.3);
+}
+
+[data-theme="dark"] .card-title {
+    color: var(--primary-color);
+    text-shadow: 0 0 5px rgba(133, 197, 255, 0.3);
+}
+
+[data-theme="rose"] {
+    --primary-color: #c2185b; 
+    --secondary-color: #e91e63; 
+    --background-color: #ffe6f0; 
+    --text-color: #b0003a; 
+    --card-bg: #fff7fb;
+    --shadow-color: rgba(194, 24, 91, 0.12);
+    --hover-color: #ffd7e6;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    min-height: 100vh;
+    background: var(--background-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+#cookie-display {
+    background: var(--card-bg);
+    padding: 1.5rem 2.5rem !important;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px var(--shadow-color);
+    transition: transform 0.2s ease;
+}
+
+#cookie-display:hover {
+    transform: translateY(-2px);
+}
+
+#cookie-count {
+    font-size: 2.5rem !important;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.cookie-btn {
+    width: 200px;
+    height: 200px;
+    background-image: url('coockie.png');
+    background-size: cover;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: drop-shadow(0 4px 8px var(--shadow-color));
+}
+
+.cookie-btn:hover { 
+    transform: scale(1.05); 
+    filter: drop-shadow(0 6px 12px var(--shadow-color));
+}
+
+.cookie-btn:active { 
+    transform: scale(0.95);
+    filter: drop-shadow(0 2px 4px var(--shadow-color));
+}
+
+.card {
+    background: var(--card-bg);
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px var(--shadow-color);
+    transition: all 0.3s ease;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.card-title {
+    color: var(--primary-color);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.shop-item {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1px solid var(--shadow-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.shop-item:hover { 
+    transform: translateX(4px);
+    background: var(--hover-color);
+    box-shadow: 0 2px 8px var(--shadow-color);
+}
+
+.shop-item.disabled { 
+    opacity: 0.6; 
+    cursor: not-allowed;
+    filter: grayscale(0.5);
+}
+
+.shop-item.purchased { 
+    border-left: 4px solid var(--primary-color);
+    background: linear-gradient(90deg, rgba(var(--primary-color), 0.1), transparent);
+}
+
+#theme-select {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    border-color: var(--shadow-color);
+    transition: all 0.2s ease;
+}
+
+#theme-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(var(--primary-color), 0.25);
+}
+
+.btn-outline-secondary {
+    color: var(--text-color);
+    border-color: var(--secondary-color);
+    transition: all 0.2s ease;
+}
+
+.btn-outline-secondary:hover {
+    background-color: var(--secondary-color);
+    color: var(--card-bg);
+}
+
+@keyframes cookieClick { 
+    0% { transform: scale(1) }
+    50% { transform: scale(0.95) }
+    100% { transform: scale(1) }
+}
+
+@keyframes floatingPoints { 
+    0% { transform: translateY(0); opacity: 1 }
+    100% { transform: translateY(-50px); opacity: 0 }
+}
+
+.floating-points {
+    position: absolute;
+    animation: floatingPoints 1s ease-out forwards;
+    pointer-events: none;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-shadow: 0 2px 4px var(--shadow-color);
+}
+
+.special-event {
+    border: 2px solid gold;
+    background: rgba(255, 215, 0, 0.1);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.4) }
+    70% { box-shadow: 0 0 0 10px rgba(255, 215, 0, 0) }
+    100% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0) }
+}
+
+@media (max-width: 767px) {
+    .cookie-btn {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .col-lg-4 {
+        margin-top: 2rem;
+    }
+    
+    #cookie-display {
+        padding: 1rem 2rem !important;
+    }
+    
+    #cookie-count {
+        font-size: 2rem !important;
+    }
+}
+
+#cookies-per-second {
+    font-weight: 600;
+    color: var(--primary-color);
+}
